@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>123</title>
+<style type="text/css">
+        *{
+                margin:0 auto;
+                padding:0;
+        }
+        @keyframes rotate{                             /* 旋转动画*/
+                0%{
+                        transform:rotateX(0deg) rotateY(0deg);
+                }
+                100%{
+                        transform:rotateX(360deg) rotateY(360deg);
+                }
+        }
+        html{
+        	position:fixed;
+        	top:0;
+        	left:0;
+        	width:1000px;
+        	height:100%;
+        	min-width:100%;
+        	z-index:-10;
+        	zoom:1;
+        	background-repeat:no-repeat;           /* 背景不平铺*/
+        	background-size:cover;                 /*背景缩放：填满背景*/
+        	-webkit-background-size:cover;
+        	-o-background-size:cover;
+        	background-position:center;            /*背景位置*/
+                background-image: url(images/bg2.jpg);
+        }
+        .main{
+                margin-top:200px;
+                perspective: 1000px;                    /*视距属性*/
+        }
+        .box{
+                width:200px;
+                height:200px;
+                position:relative;
+                transform-style:preserve-3d;            /*设置3D变形*/
+                transform:rotateX(-30deg) rotateY(-70deg); 
+                animation:rotate 20s infinite linear;
+        }
+        .box > div{
+                width:100%;
+                height:100%;
+                position:absolute;
+                opacity:0.85;
+                transition:transform 0.4s ease-in;
+        }
+         
+         
+        .box > span{
+                width:50%;
+                height:50%;
+                position:absolute;
+                top:50px;
+                left:50px;
+        }
+         
+         
+        .out-front{/*前*/
+                transform: translateZ(100px);/*沿Z轴移动*/
+        }
+        .out-back{/*后*/
+                transform: translateZ(-100px) rotateX(180deg);/*沿着Z轴移动，绕Y轴旋转*/
+        }
+        .out-left{/*左*/
+                transform: translateX(-100px) rotateY(-90deg);/*沿着X轴移动，绕Y轴旋转*/
+        }
+        .out-right{/*右*/
+                transform: translateX(100px) rotateY(90deg);/*沿着X轴移动，绕Y轴旋转*/
+        }
+        .out-top{/*上*/
+                transform: translateY(-100px) rotateX(90deg);/*沿着Y轴移动，绕X轴旋转*/
+        }
+        .out-bottom{/*下*/
+                transform: translateY(100px) rotateX(-90deg);/*沿着Y轴移动，绕X轴旋转*/
+        }
+         
+         
+         
+         
+        .in-front{/*前*/
+                transform: translateZ(50px);/*沿着Z轴移动*/
+        }
+        .in-back{/*后*/
+                transform: translateZ(-50px) rotateY(180deg);/*沿着Z轴移动，绕Y轴旋转*/
+        }
+        .in-left{/*左*/
+                transform: translateX(-50px) rotateY(-90deg);/*沿着X轴移动，绕Y轴旋转*/
+        }
+        .in-right{/*右*/
+                transform: translateX(50px) rotateY(90deg);/*沿着X轴移动，绕Y轴旋转*/
+        }
+        .in-top{/*上*/
+                transform: translateY(-50px) rotateX(90deg);/*沿着Y轴移动，绕X轴旋转*/
+        }
+        .in-bottom{/*下*/
+                transform: translateY(50px) rotateX(-90deg);/*沿着Y轴移动，绕X轴旋转*/
+        }
+         
+        .box:hover .out-front{/*前*/
+                transform: translateZ(200px);/*沿着Z轴移动*/
+        }
+        .box:hover .out-back{/*后*/
+                transform: translateZ(-200px) rotateX(180deg);/*沿着Z轴移动，绕Y轴旋转*/
+        }
+        .box:hover .out-left{/*左*/
+                transform: translateX(-200px) rotateY(-90deg);/*沿着X轴移动，绕Y轴旋转*/
+        }
+        .box:hover .out-right{/*右*/
+                transform: translateX(200px) rotateY(90deg);/*沿着X轴移动，绕Y轴旋转*/
+        }
+        .box:hover .out-top{/*上*/
+                transform: translateY(-200px) rotateX(90deg);/*沿着Y轴移动，绕X轴旋转*/
+        }
+        .box:hover .out-bottom{/*下*/
+                transform: translateY(200px) rotateX(-90deg);/*沿着Y轴移动，绕X轴旋转*/
+        }
+        div img{
+                width: 100%;
+                height: 100%;
+        }
+ 
+</style>
+</head>
+<body>
+        <div class="main">
+                <div class="box">
+                        <!-- 外立方体 -->
+                        <div class="out-front"><img src="images/pic1.jpg"></div>
+                        <div class="out-back"><img src="images/pic3.png"></div>
+                        <div class="out-left"><img src="images/pic4.png"></div>
+                        <div class="out-right"><img src="images/pic6.png"></div> 
+                        <div class="out-top"><img src="images/pic7.png"></div>
+                        <div class="out-bottom"><img src="images/pic8.png"></div>
+                         <!-- 内立方体 -->
+                        <span class="in-front"><img src="images/bj3.jpg"></span>
+                        <span class="in-back"><img src="images/bj3.jpg"></span>
+                        <span class="in-left"><img src="images/bj3.jpg"></span>
+                        <span class="in-right"><img src="images/bj3.jpg"></span>
+                        <span class="in-top"><img src="images/bj3.jpg"></span>
+                        <span class="in-bottom"><img src="images/bj3.jpg"></span>
+                </div>
+        </div>
+</body>
+</html>
